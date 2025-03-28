@@ -12,5 +12,4 @@ d = { 'settings': { 'branch': 'main',
                             'flocky.api.list_open_tasks': ('api.html#list_open_tasks', 'flocky/api.py'),
                             'flocky.api.parse_subs': ('api.html#parse_subs', 'flocky/api.py'),
                             'flocky.api.pd_parse': ('api.html#pd_parse', 'flocky/api.py')},
-            'flocky.core': {'flocky.core.get_gpu_info': ('core.html#get_gpu_info', 'flocky/core.py')},
-            'flocky.gpu': {}}}
+            'flocky.core': {'flocky.core.get_gpu_info': ('core.html#get_gpu_info', 'flocky/core.py')}}}
