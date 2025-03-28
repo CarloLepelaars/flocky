@@ -13,7 +13,7 @@ from fastcore.all import *
 BASE_URL = 'https://fed-ledger-prod.flock.io/api/v1/'
 BASE_URL
 
-# %% ../nbs/00_core.ipynb 7
+# %% ../nbs/00_core.ipynb 10
 def get_gpu_info():
     gpu_dict = AttrDict()
     gpu_dict.cuda_available = torch.cuda.is_available()
