@@ -14,7 +14,7 @@ BASE_URL = 'https://fed-ledger-prod.flock.io/api/v1/'
 BASE_URL
 
 # %% ../nbs/00_core.ipynb 7
-def check_flock(): return loads(urlread(f'{BASE_URL}health'))["status"] == "ok"
+def check_flock(): return urlcheck(f'{BASE_URL}health')
 
 # %% ../nbs/00_core.ipynb 10
 def get_gpu_info():

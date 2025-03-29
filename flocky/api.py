@@ -13,25 +13,24 @@ from .core import BASE_URL
 
 # %% ../nbs/01_api.ipynb 5
 def get_task(task_id: int):
-    return AttrDict(loads(urlread(f'{BASE_URL}tasks/get?task_id={task_id}')))
+    return urljson(f'{BASE_URL}tasks/get?task_id={task_id}')
 
 # %% ../nbs/01_api.ipynb 8
-def pd_parse(d):
-    df = pd.json_normalize(d, max_level=1, sep='_', record_prefix='')
-    return df.rename(columns=lambda x: x.replace('data_', '')).T
+def pd_parse(d): return pd.json_normalize(d, max_level=1, sep='_')
 
 # %% ../nbs/01_api.ipynb 10
 def list_open_tasks():
-    return loads(urlread(f'{BASE_URL}tasks/list?status=submission_phase'))
+    return urljson(f'{BASE_URL}tasks/list?status=submission_phase')
 
 # %% ../nbs/01_api.ipynb 12
-def list_finalized_tasks():
-    return loads(urlread(f'{BASE_URL}tasks/list?status=finalized'))
+def list_finalized_tasks(): 
+    return urljson(f'{BASE_URL}tasks/list?status=finalized')
 
-# %% ../nbs/01_api.ipynb 14
+# %% ../nbs/01_api.ipynb 15
 def get_subs(task_id: int):
-    return loads(urlread(f'{BASE_URL}tasks/wallet-submissions?task_id={task_id}', 
-                         headers={"flock-api-key":os.getenv('FLOCK_API_KEY')}))
+    return urlread(f'{BASE_URL}tasks/wallet-submissions?task_id={task_id}', 
+                   headers={"flock-api-key":os.getenv('FLOCK_API_KEY')},
+                   return_json=True)
 
 def parse_subs(res):
     cols = ['link','submission_phase_score', 'final_validation_score', 'submitted_at']
