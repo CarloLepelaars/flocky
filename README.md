@@ -11,15 +11,38 @@ I strive for correctness, I cannot guarantee that this package is
 bug-free. Always verify your own implementation, especially when using
 `flocky` in production.
 
+## Installation
+
+    pip install flocky
+
 ## Quickstart
 
 ### Get specific task
 
+Data can be retrieved as JSON or a Pandas DataFrame.
+
 ``` python
 from flocky.api import get_task
 
-task = get_task(7, as_df=True)
-task
+get_task(7, as_df=False)
+```
+
+    {'title': 'FLock x OneKey: Advancing AI-Driven Smart Contract Security',
+     'description': 'FLock and OneKey are collaborating to launch the first AI-driven smart contract security challenge, combining FLock’s decentralized model training with OneKey’s expertise in blockchain security. By training AI on real-world vulnerabilities and security Q&A data, we aim to build a benchmark dataset and develop models capable of detecting and mitigating risks at scale. Top contributors will be rewarded with OneKey Hardware Wallet - FLock Limited Edition',
+     'task_type': 'training',
+     'data': {'training_set_url': 'https://fed-ledger-prod-dataset.s3.amazonaws.com/7/training_set.jsonl?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASSFQ745NLT5K57N2%2F20250401%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20250401T153446Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=fc9d7016681513e23a87fe9c30e5e7139ee53b76e3a8ef78a3cd02248d75494c',
+      'max_params': 15000000000,
+      'context_length': 8192},
+     'duration_in_seconds': 2419200,
+     'id': 7,
+     'status': 'submission_phase',
+     'initialized_at': '2025-03-26T16:22:01.791348',
+     'submission_phase_ends_at': '2025-04-23T23:59:59.791348',
+     'final_validation_ends_at': '2025-04-28T23:59:59.791348',
+     'final_link': None}
+
+``` python
+get_task(7, as_df=True)
 ```
 
 <div>
