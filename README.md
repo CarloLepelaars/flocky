@@ -13,13 +13,97 @@ bug-free. Always verify your own implementation, especially when using
 
 ## Quickstart
 
+### Get specific task
+
 ``` python
 from flocky.api import get_task
 
-task = get_task(7)
-print("Task title:", task['title'])
-print("Task status:", task['status'])
+task = get_task(7, as_df=True)
+task
 ```
 
-    Task title: FLock x OneKey: Advancing AI-Driven Smart Contract Security
-    Task status: submission_phase
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&#10;    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+&#10;    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+|  | title | description | task_type | duration_in_seconds | id | status | initialized_at | submission_phase_ends_at | final_validation_ends_at | final_link | data_training_set_url | data_max_params | data_context_length |
+|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
+| 0 | FLock x OneKey: Advancing AI-Driven Smart Cont... | FLock and OneKey are collaborating to launch t... | training | 2419200 | 7 | submission_phase | 2025-03-26T16:22:01.791348 | 2025-04-23T23:59:59.791348 | 2025-04-28T23:59:59.791348 | None | https://fed-ledger-prod-dataset.s3.amazonaws.c... | 15000000000 | 8192 |
+
+</div>
+
+### Get open tasks
+
+``` python
+from flocky.api import open_tasks
+
+tasks = open_tasks(as_df=True)
+tasks
+```
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&#10;    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+&#10;    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+|  | title | description | task_type | duration_in_seconds | id | status | initialized_at | submission_phase_ends_at | final_validation_ends_at | data_recommended_vram | data_dataset_s3_key | data_max_params | data_context_length | data_training_set_key | data_validation_set_key | data_final_validation_set_key |
+|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|----|
+| 0 | FLock x OneKey: Advancing AI-Driven Smart Cont... | FLock and OneKey are collaborating to launch t... | training | 2419200 | 7 | submission_phase | 2025-03-26T16:22:01.791348 | 2025-04-23T23:59:59.791348 | 2025-04-28T23:59:59.791348 | 48GB | onekey-security/combined.jsonl | 15000000000 | 8192 | 7/training_set.jsonl | 7/validation_set.jsonl | 7/final_validation_set.jsonl |
+
+</div>
+
+### Get submission scores
+
+``` python
+from flocky.api import get_subs
+
+scores = get_subs(7, as_df=True)
+scores
+```
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+&#10;    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+&#10;    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+|  | link | submission_phase_score | final_validation_score | submitted_at |
+|----|----|----|----|----|
+| 0 | https://huggingface.co/clepelaars/task-7-Qwen-... | None | None | 2025-03-28T12:45:21.402671 |
+
+</div>
+
+## Upload to HuggingFace
+
+This function will upload the contents of the `outputs` directory to the
+HuggingFace Hub with a given repo name. This require you to have set
+`HF_TOKEN` in your environment variables.
+
+``` python
+from flocky.api import upload_to_hf
+# upload_to_hf("clepelaars/flocky-test", output_dir="outputs")
+```
