@@ -12,12 +12,11 @@ from fastcore.all import *
 
 # %% ../nbs/00_core.ipynb 5
 BASE_URL = 'https://fed-ledger-prod.flock.io/api/v1/'
-BASE_URL
 
-# %% ../nbs/00_core.ipynb 7
+# %% ../nbs/00_core.ipynb 8
 def check_flock(): return urlcheck(f'{BASE_URL}health')
 
-# %% ../nbs/00_core.ipynb 10
+# %% ../nbs/00_core.ipynb 11
 def get_gpu_info():
     gpu_dict = AttrDict()
     gpu_dict.cuda_available = torch.cuda.is_available()
@@ -33,5 +32,5 @@ def get_gpu_info():
         gpu_dict.gpu_count = 0
     return gpu_dict
 
-# %% ../nbs/00_core.ipynb 14
+# %% ../nbs/00_core.ipynb 15
 def pd_parse(d): return pd.json_normalize(d, max_level=1, sep='_')
