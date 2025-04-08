@@ -130,3 +130,13 @@ HuggingFace Hub with a given repo name. This require you to have set
 from flocky.api import upload_to_hf
 # upload_to_hf("clepelaars/flocky-test", output_dir="outputs")
 ```
+
+## Contributing to Flocky
+
+If you would like to contribute to Flocky, first of all thank you for
+considering this! To get started feel free to create a Github issue so
+we can discuss the contribution.
+
+Please read the [contribution
+guidelines](https://github.com/CarloLepelaars/flocky/blob/master/CONTRIBUTING.MD)
+before submitting pull requests (PRs).
