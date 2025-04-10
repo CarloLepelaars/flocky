@@ -5,5 +5,5 @@ website:
   title: "flocky"
   site-url: "https://CarloLepelaars.github.io/flocky"
   description: "(Unofficial) SDK for Flock.io"
-  repo-branch: main
+  repo-branch: master
   repo-url: "https://github.com/CarloLepelaars/flocky"
