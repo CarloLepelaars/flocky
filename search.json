@@ -1,0 +1,142 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "flocky",
+    "section": "",
+    "text": "flocky makes participating in Flock.io easy!\nNOTE: This project is not officially affiliated with Flock.io. This package is maintained by a participant of the Flock.io community. While I strive for correctness, I cannot guarantee that this package is bug-free. Always verify your own implementation, especially when using flocky in production.",
+    "crumbs": [
+      "flocky"
+    ]
+  },
+  {
+    "objectID": "index.html#installation",
+    "href": "index.html#installation",
+    "title": "flocky",
+    "section": "Installation",
+    "text": "Installation\npip install flocky",
+    "crumbs": [
+      "flocky"
+    ]
+  },
+  {
+    "objectID": "index.html#quickstart",
+    "href": "index.html#quickstart",
+    "title": "flocky",
+    "section": "Quickstart",
+    "text": "Quickstart\n\nGet specific task\nData can be retrieved as JSON or a Pandas DataFrame.\n\nfrom flocky.api import get_task\n\nget_task(7, as_df=False)\n\n{'title': 'FLock x OneKey: Advancing AI-Driven Smart Contract Security',\n 'description': 'FLock and OneKey are collaborating to launch the first AI-driven smart contract security challenge, combining FLock’s decentralized model training with OneKey’s expertise in blockchain security. By training AI on real-world vulnerabilities and security Q&A data, we aim to build a benchmark dataset and develop models capable of detecting and mitigating risks at scale. Top contributors will be rewarded with OneKey Hardware Wallet - FLock Limited Edition',\n 'task_type': 'training',\n 'data': {'training_set_url': 'https://fed-ledger-prod-dataset.s3.amazonaws.com/7/training_set.jsonl?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASSFQ745NLT5K57N2%2F20250401%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20250401T153446Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=fc9d7016681513e23a87fe9c30e5e7139ee53b76e3a8ef78a3cd02248d75494c',\n  'max_params': 15000000000,\n  'context_length': 8192},\n 'duration_in_seconds': 2419200,\n 'id': 7,\n 'status': 'submission_phase',\n 'initialized_at': '2025-03-26T16:22:01.791348',\n 'submission_phase_ends_at': '2025-04-23T23:59:59.791348',\n 'final_validation_ends_at': '2025-04-28T23:59:59.791348',\n 'final_link': None}\n\n\n\nget_task(7, as_df=True)\n\n\n\n\n\n\n\n\ntitle\ndescription\ntask_type\nduration_in_seconds\nid\nstatus\ninitialized_at\nsubmission_phase_ends_at\nfinal_validation_ends_at\nfinal_link\ndata_training_set_url\ndata_max_params\ndata_context_length\n\n\n\n\n0\nFLock x OneKey: Advancing AI-Driven Smart Cont...\nFLock and OneKey are collaborating to launch t...\ntraining\n2419200\n7\nsubmission_phase\n2025-03-26T16:22:01.791348\n2025-04-23T23:59:59.791348\n2025-04-28T23:59:59.791348\nNone\nhttps://fed-ledger-prod-dataset.s3.amazonaws.c...\n15000000000\n8192\n\n\n\n\n\n\n\n\n\nGet open tasks\n\nfrom flocky.api import open_tasks\n\ntasks = open_tasks(as_df=True)\ntasks\n\n\n\n\n\n\n\n\ntitle\ndescription\ntask_type\nduration_in_seconds\nid\nstatus\ninitialized_at\nsubmission_phase_ends_at\nfinal_validation_ends_at\ndata_recommended_vram\ndata_dataset_s3_key\ndata_max_params\ndata_context_length\ndata_training_set_key\ndata_validation_set_key\ndata_final_validation_set_key\n\n\n\n\n0\nFLock x OneKey: Advancing AI-Driven Smart Cont...\nFLock and OneKey are collaborating to launch t...\ntraining\n2419200\n7\nsubmission_phase\n2025-03-26T16:22:01.791348\n2025-04-23T23:59:59.791348\n2025-04-28T23:59:59.791348\n48GB\nonekey-security/combined.jsonl\n15000000000\n8192\n7/training_set.jsonl\n7/validation_set.jsonl\n7/final_validation_set.jsonl\n\n\n\n\n\n\n\n\n\nGet submission scores\n\nfrom flocky.api import get_subs\n\nscores = get_subs(7, as_df=True)\nscores\n\n\n\n\n\n\n\n\nlink\nsubmission_phase_score\nfinal_validation_score\nsubmitted_at\n\n\n\n\n0\nhttps://huggingface.co/clepelaars/task-7-Qwen-...\nNone\nNone\n2025-03-28T12:45:21.402671",
+    "crumbs": [
+      "flocky"
+    ]
+  },
+  {
+    "objectID": "index.html#upload-to-huggingface",
+    "href": "index.html#upload-to-huggingface",
+    "title": "flocky",
+    "section": "Upload to HuggingFace",
+    "text": "Upload to HuggingFace\nThis function will upload the contents of the outputs directory to the HuggingFace Hub with a given repo name. This require you to have set HF_TOKEN in your environment variables.\n\nfrom flocky.api import upload_to_hf\n# upload_to_hf(\"clepelaars/flocky-test\", output_dir=\"outputs\")",
+    "crumbs": [
+      "flocky"
+    ]
+  },
+  {
+    "objectID": "index.html#contributing-to-flocky",
+    "href": "index.html#contributing-to-flocky",
+    "title": "flocky",
+    "section": "Contributing to Flocky",
+    "text": "Contributing to Flocky\nIf you would like to contribute to Flocky, first of all thank you for considering this! To get started feel free to create a Github issue so we can discuss the contribution.\nPlease read the contribution guidelines before submitting pull requests (PRs).",
+    "crumbs": [
+      "flocky"
+    ]
+  },
+  {
+    "objectID": "core.html",
+    "href": "core.html",
+    "title": "core",
+    "section": "",
+    "text": "BASE_URL\n\n'https://fed-ledger-prod.flock.io/api/v1/'",
+    "crumbs": [
+      "core"
+    ]
+  },
+  {
+    "objectID": "core.html#gpu-info",
+    "href": "core.html#gpu-info",
+    "title": "core",
+    "section": "GPU Info",
+    "text": "GPU Info\n\nsource\n\nget_gpu_info\n\n get_gpu_info ()\n\n\ngpu_info = get_gpu_info()\nassert isinstance(gpu_info, AttrDict)\ntest_eq(gpu_info.gpu_count, 0)\ntest_eq(gpu_info.cuda_available, False)\ngpu_info\n\n{'cuda_available': False, 'gpu_count': 0}",
+    "crumbs": [
+      "core"
+    ]
+  },
+  {
+    "objectID": "core.html#json---dataframe",
+    "href": "core.html#json---dataframe",
+    "title": "core",
+    "section": "JSON -> DataFrame",
+    "text": "JSON -&gt; DataFrame\nWe can convert one-level nested JSON object with pd.json_normalize.\n\nsource\n\npd_parse\n\n pd_parse (d)\n\n\ndf = pd_parse({\"Feature 1\": {\"sub\": \"Hey\", \"sub2\": \"You\"}, \"Feature 2\": {\"sub\": \"Hey\", \"sub2\": \"You\"}})\ndf\n\n\n\n\n\n\n\n\nFeature 1_sub\nFeature 1_sub2\nFeature 2_sub\nFeature 2_sub2\n\n\n\n\n0\nHey\nYou\nHey\nYou\n\n\n\n\n\n\n\n\ntest_eq(df.columns.tolist(), [\"Feature 1_sub\", \"Feature 1_sub2\", \"Feature 2_sub\", \"Feature 2_sub2\"])\ntest_eq(df.iloc[0][\"Feature 1_sub2\"], \"You\")",
+    "crumbs": [
+      "core"
+    ]
+  },
+  {
+    "objectID": "api.html",
+    "href": "api.html",
+    "title": "api",
+    "section": "",
+    "text": "The Flock API reference can be found here.\nfrom dotenv import load_dotenv\nload_dotenv()\n\nTrue",
+    "crumbs": [
+      "api"
+    ]
+  },
+  {
+    "objectID": "api.html#tasks",
+    "href": "api.html#tasks",
+    "title": "api",
+    "section": "Tasks",
+    "text": "Tasks\nIn most cases you will want to get single task information to work with.\n\nsource\n\nget_task\n\n get_task (task_id:int, as_df:bool=False)\n\nGet task as JSON or Dataframe.\n\ntask_info = get_task(1, as_df=False)\ntask_info\n\n{'title': 'Foundation Model for Web3 Agent',\n 'description': 'The Web3 world is buzzing about AI agents, but true decentralization can’t happen if every agent relies on GPT or Claude. FLock is rallying open-source and decentralized AI engineers to build a foundation model with robust function-calling capabilities for blockchain-related tasks. Together, let’s empower everyone to create their own models and agents.',\n 'task_type': 'training',\n 'data': {'training_set_url': 'https://fed-ledger-prod-dataset.s3.amazonaws.com/1/training_set.jsonl?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASSFQ745NLT5K57N2%2F20250410%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Date=20250410T130858Z&X-Amz-Expires=3600&X-Amz-SignedHeaders=host&X-Amz-Signature=6565638731440c5bc264fff1c7b3598bbc88b984ce86c815799227f3bf296f3f',\n  'max_params': 9500000000,\n  'context_length': 4096},\n 'duration_in_seconds': 2160000,\n 'id': 1,\n 'status': 'finalized',\n 'initialized_at': '2024-12-31T03:02:33.260306',\n 'submission_phase_ends_at': '2025-01-25T23:59:59.260306',\n 'final_validation_ends_at': '2025-01-30T23:59:59.260306',\n 'final_link': 'https://huggingface.co/jfranklin-foundry/task-1-microsoft-Phi-3-mini-4k-instruct'}\n\n\n\ntest_eq(task_info[\"id\"], 1)\ntest_eq(task_info[\"task_type\"], \"training\")\ntest_eq(task_info[\"title\"], \"Foundation Model for Web3 Agent\")\n\n\ntask_df = get_task(1, as_df=True)\ntask_df\n\n\n\n\n\n\n\n\ntitle\ndescription\ntask_type\nduration_in_seconds\nid\nstatus\ninitialized_at\nsubmission_phase_ends_at\nfinal_validation_ends_at\nfinal_link\ndata_training_set_url\ndata_max_params\ndata_context_length\n\n\n\n\n0\nFoundation Model for Web3 Agent\nThe Web3 world is buzzing about AI agents, but...\ntraining\n2160000\n1\nfinalized\n2024-12-31T03:02:33.260306\n2025-01-25T23:59:59.260306\n2025-01-30T23:59:59.260306\nhttps://huggingface.co/jfranklin-foundry/task-...\nhttps://fed-ledger-prod-dataset.s3.amazonaws.c...\n9500000000\n4096\n\n\n\n\n\n\n\n\ntest_eq(task_df[\"id\"].item(), task_info[\"id\"])\ntest_eq(task_df[\"task_type\"].item(), task_info[\"task_type\"])\n\nWe are most interesting in tasks that are in the submission phase.\n\nsource\n\n\nopen_tasks\n\n open_tasks (as_df:bool=False)\n\n\nopen_task_df = open_tasks(as_df=True)\nopen_task_df\n\n\n\n\n\n\n\n\ntitle\ndescription\ntask_type\nduration_in_seconds\nid\nstatus\ninitialized_at\nsubmission_phase_ends_at\nfinal_validation_ends_at\ndata_recommended_vram\ndata_dataset_s3_key\ndata_max_params\ndata_context_length\ndata_training_set_key\ndata_validation_set_key\ndata_final_validation_set_key\n\n\n\n\n0\nFLock x OneKey: Advancing AI-Driven Smart Cont...\nFLock and OneKey are collaborating to launch t...\ntraining\n2419200\n7\nsubmission_phase\n2025-03-26T16:22:01.791348\n2025-04-23T23:59:59.791348\n2025-04-28T23:59:59.791348\n48GB\nonekey-security/combined.jsonl\n15000000000\n8192\n7/training_set.jsonl\n7/validation_set.jsonl\n7/final_validation_set.jsonl\n\n\n\n\n\n\n\n\nassert not open_task_df.empty\n\n\nsource\n\n\nfinalized_tasks\n\n finalized_tasks (as_df:bool=False)\n\n\nfin_tasks = finalized_tasks(as_df=True)\nfin_tasks.tail(3)\n\n\n\n\n\n\n\n\ntitle\ndescription\ntask_type\nduration_in_seconds\nid\nstatus\ninitialized_at\nsubmission_phase_ends_at\nfinal_validation_ends_at\ndata_dataset_s3_key\ndata_max_params\ndata_context_length\ndata_training_set_key\ndata_validation_set_key\ndata_final_validation_set_key\ndata_recommended_vram\n\n\n\n\n4\nAI Hedge Fund: QuantumApex\nQuantumApex will function as a key component o...\ntraining\n1296000\n3\nfinalized\n2025-01-30T15:46:35.932388\n2025-02-14T23:59:59.932388\n2025-02-19T23:59:59.932388\nhedge_fund/combined.jsonl\n8000000000\n4096\n3/training_set.jsonl\n3/validation_set.jsonl\n3/final_validation_set.jsonl\n24GB\n\n\n5\nAI Producer: SEEK48\n&lt;p&gt;FLock introduces SEEK48, an advanced AI ido...\ntraining\n2419200\n6\nfinalized\n2025-03-02T23:02:16.975240\n2025-03-30T23:59:59.975240\n2025-04-04T23:59:59.975240\nai-idol/combined.jsonl\n8000000000\n4096\n6/training_set.jsonl\n6/validation_set.jsonl\n6/final_validation_set.jsonl\n24GB\n\n\n6\nChasm x FLock: AI Mystery\n&lt;p&gt;FLock & Chasm introduces an AI-powered meta...\ntraining\n2419200\n5\nfinalized\n2025-02-21T16:55:52.751560\n2025-03-21T23:59:59.751560\n2025-03-26T23:59:59.751560\nai-mystery/combined.jsonl\n8000000000\n2048\n5/training_set.jsonl\n5/validation_set.jsonl\n5/final_validation_set.jsonl\n24GB\n\n\n\n\n\n\n\n\nassert not fin_tasks.empty",
+    "crumbs": [
+      "api"
+    ]
+  },
+  {
+    "objectID": "api.html#submission-scores",
+    "href": "api.html#submission-scores",
+    "title": "api",
+    "section": "Submission Scores",
+    "text": "Submission Scores\nTo view submission scores you will need to set a valid FLOCK_API_KEY in your environment. I suggest using python-dotenv.\n\nsource\n\nget_subs\n\n get_subs (task_id:int, as_df:bool=False)\n\nGet submissions as JSON or Dataframe.\n\nsub_df = get_subs(7, as_df=True)\nsub_df.T\n\n\n\n\n\n\n\n\n0\n1\n\n\n\n\nlink\nhttps://huggingface.co/clepelaars/task-7-Qwen-...\nhttps://huggingface.co/clepelaars/task-7-Qwen-...\n\n\nsubmission_phase_score\nNone\nNone\n\n\nfinal_validation_score\nNone\nNone\n\n\nsubmitted_at\n2025-04-10T13:05:58.502101\n2025-03-28T12:45:21.402671\n\n\n\n\n\n\n\n\nassert not sub_df.empty",
+    "crumbs": [
+      "api"
+    ]
+  },
+  {
+    "objectID": "api.html#stats",
+    "href": "api.html#stats",
+    "title": "api",
+    "section": "Stats",
+    "text": "Stats\nThe Flock API provides several global and wallet-based stats.\n\nGlobal stats\nThe most meaningful global stats are the submission and validation counts per day.\n\nsource\n\n\nsub_stats\n\n sub_stats (as_df:bool)\n\nSubmissions and validation counts per day.\nSubmission counts as a DataFrame\n\nsubs = sub_stats(as_df=True)\nsubs.tail(3)\n\n\n\n\n\n\n\n\ntime\ncount\n\n\n\n\n100\n2025-04-08\n28\n\n\n101\n2025-04-09\n39\n\n\n102\n2025-04-10\n35\n\n\n\n\n\n\n\n\nassert not subs.empty\n\nValidation counts as a DataFrame\n\ndef val_stats(as_df: bool):\n    \"\"\" Validation counts per day. \"\"\"\n    j = urljson(f'{BASE_URL}stats/emissions?type=validation')['data']\n    return pd_parse(j) if as_df else j\n\n\nval = val_stats(as_df=True)\nval.tail(3)\n\n\n\n\n\n\n\n\ntime\ncount\n\n\n\n\n100\n2025-04-08\n1874\n\n\n101\n2025-04-09\n2521\n\n\n102\n2025-04-10\n2306\n\n\n\n\n\n\n\n\nassert not val.empty\n\n\n\nWallet-based stats\nMost statistics are based on individual addresses. This includes: - Get submissions for a particular wallet - Get achievements of a particular wallet - Retrieve in which tasks a wallet is enrolled (i.e. staked).\n\nsource\n\n\nFlockWalletStats\n\n FlockWalletStats (address:str)\n\nGet wallet-based stats.\n\nexample_wallet = \"0xB93A9c73751Bbca8E1924954271ee8d4De5747c9\"\nfwl = FlockWalletStats(example_wallet)\nfwl\n\nFlockWalletStats(address='0xB93A9c73751Bbca8E1924954271ee8d4De5747c9', base_url='https://fed-ledger-prod.flock.io/api/v1/stats/')\n\n\n\ntest_eq(fwl.address, example_wallet)\n\nWe can now retrieve the valid submissions of the wallet as JSON or a DataFrame.\n\nfwl.subs(as_df=False)\n\n{'items': [], 'total': 0, 'page': 1, 'size': 50, 'pages': 0}\n\n\n\nm = fwl.subs(as_df=True)\nm\n\n\n\n\n\n\n\n\nitems\ntotal\npage\nsize\npages\n\n\n\n\n0\n[]\n0\n1\n50\n0\n\n\n\n\n\n\n\n\nassert not m.empty\n\nValidation achievements\n\nval_achievements = fwl.achievements(as_df=True, role='validator')\nval_achievements\n\n\n\n\n\n\n\n\ngold_medals\nsilver_medals\nbronze_medals\ntotal_participations\ntasks\n\n\n\n\n0\n0\n0\n0\n0\n[]\n\n\n\n\n\n\n\n\nassert not val_achievements.empty\nexpected_cols = [\"gold_medals\", \"silver_medals\", \"bronze_medals\", \"total_participations\", \"tasks\"]\ntest_eq(val_achievements.columns.tolist(), expected_cols)\n\nNode achievements\n\nnode_achievements = fwl.achievements(as_df=True, role='node')\nnode_achievements\n\n\n\n\n\n\n\n\ngold_medals\nsilver_medals\nbronze_medals\ntotal_participations\ntasks\n\n\n\n\n0\n0\n0\n0\n0\n[]\n\n\n\n\n\n\n\n\nassert not node_achievements.empty\ntest_eq(node_achievements.columns.tolist(), expected_cols)",
+    "crumbs": [
+      "api"
+    ]
+  },
+  {
+    "objectID": "api.html#huggingface",
+    "href": "api.html#huggingface",
+    "title": "api",
+    "section": "HuggingFace",
+    "text": "HuggingFace\nA general requirement for participating in Flock tasks is to upload models to the HuggingFace Hub. For this you will need a HuggingFace token with write access and set the HF_TOKEN environment variable. For setting environment variables I would recommend using python-dotenv.\n\nsource\n\nupload_to_hf\n\n upload_to_hf (repo_name:str, output_dir:str='outputs')\n\nUpload a model to the HuggingFace Hub. :param repo_name: the name of the repository to upload to. For example: myhfname/task-1-model. :param output_dir: the directory to upload to the HuggingFace Hub. :return: the commit hash you will need to submit to Flock.",
+    "crumbs": [
+      "api"
+    ]
+  },
+  {
+    "objectID": "api.html#submitting-to-task",
+    "href": "api.html#submitting-to-task",
+    "title": "api",
+    "section": "Submitting to Task",
+    "text": "Submitting to Task\nOnce you have the HuggingFace model uploaded and retrieved the commit hash, you can submit your results to the Flock task.\n\nsource\n\nsubmit_task\n\n submit_task (task_id:int, hg_repo_id:str, base_model:str,\n              commit_hash:str)\n\nSubmit results to Flock task. :param task_id: the ID of the task you want to submit to. :param hg_repo_id: the ID of the HuggingFace repository you want to submit. :param base_model: the base model you want to use. Must be a valid model name like “Qwen/Qwen1.5-7B or google/gemma-7b. :param commit_hash: the HuggingFace Hub Model commit hash of the model you want to submit.",
+    "crumbs": [
+      "api"
+    ]
+  }
+]
