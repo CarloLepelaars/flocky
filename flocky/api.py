@@ -8,6 +8,7 @@ __all__ = ['get_task', 'open_tasks', 'finalized_tasks', 'get_subs', 'sub_stats',
 
 # %% ../nbs/01_api.ipynb 3
 import json
+import requests
 import pandas as pd
 from fastcore.all import *
 from huggingface_hub import HfApi
@@ -121,8 +122,12 @@ def submit_task(
         "flock-api-key": os.getenv('FLOCK_API_KEY'),
         "Content-Type": "application/json",
     }
-    return urlrequest(f"{BASE_URL}/tasks/submit-result", 
-                      verb="POST",
-                      headers=hdr, 
-                      data=payload,
-                      json_data=True)
+    response = requests.request(
+        "POST",
+        f"{BASE_URL}/tasks/submit-result",
+        headers=hdr,
+        data=payload
+    )
+    if response.status_code != 200:
+        raise Exception(f"Failed to submit task: {response.text}")
+    return response.json()
